@@ -14,7 +14,7 @@ void enfileirar(FilaImpressao *fila, TarefaImpressao tarefa) {
 
 void desenfileirar(FilaImpressao *fila) {
     if (fila->frente > fila->tras) {
-        printf("A fila de impressao está vazia\n");
+        printf("A fila de impressao estÃ¡ vazia\n");
     } else {
         printf("Imprimindo tarefa \"%s\" de %d paginas.\n", fila->tarefas[fila->frente].nomeDocumento, fila->tarefas[fila->frente].numeroPaginas);
         fila->frente++;

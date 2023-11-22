@@ -1,35 +1,36 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
-/* Verificar se um elemento existe no array Escreva uma função que recebe um array de strings e uma string de busca, e retorna "1" se a string de busca existe no array, ou "0" caso não exista.*/
 
-int main() {
-    char nomes[6][16]; 
-    char busca[16];
-    int i;
+int veriNome (char *nPad[], int tam, char *busca){
+    for (int i = 0; i<tam;i++){
+        if (strcmp(nPad[i], busca)==0){
+            return 1;
 
-    for (i = 0; i < 6; i++) {
-        printf("Digite um nome:\n");
-        scanf("%s", nomes[i]);
-    }
-
-    printf("Digite um nome de busca:\n");
-    scanf("%s", busca);
-
-    int encontrado = 0; 
-
-    for (i = 0; i < 6; i++) {
-        if (strcmp(busca, nomes[i]) == 0) { 
-            encontrado = 1;
-            break; 
         }
     }
+        return 0;
+}
 
-    if (encontrado) {
-        printf("1\n");
-    } else {
-        printf("0\n");
+int main() {
+    char *nPad[]={"ana", "barbara", "nadia"};
+    int tam = sizeof (nPad) / sizeof (nPad[0]);
+    char busca [50];
+
+    printf ("Digite o nome que deseja buscar: ");
+    scanf ("%s", busca);
+    
+    int resultado = veriNome (nPad, tam, busca);
+
+    if (resultado == 1){
+        printf ("1 -O nome %s foi encontrado no array", busca);
     }
+    else {
+        printf ("0 -O nome %s nao foi encontrado no array", busca);
+
+    }
+   
 
     return 0;
 }
